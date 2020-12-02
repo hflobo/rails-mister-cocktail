@@ -1,0 +1,19 @@
+<div class="cocktail-container bg-gradient">
+  <div class="card-product link ml-5 pl-3">
+    <%= simple_form_for @cocktail do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <div class="form-inputs">
+        <%= f.input :name, class: "form-control" %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, class: "btn btn-warning" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="mx-5 my-2 btn btn-warning">
+    <%= link_to 'Back', cocktails_path %>
+  </div>
+</div>

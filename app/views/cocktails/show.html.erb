@@ -1,0 +1,25 @@
+<div class="cocktail-container bg-gradient">
+  <div style="position: relative; top: -200px; left: 150px;">
+    <h1 class= "pl-5"> <%= @cocktail.name %></h1>
+  </div>
+  <div class="d-flex justify-content-around" style="position: relative; top: -200px;">
+    <%= image_tag "cocktail-card.jpg", alt: "cocktail", width: 400, height: 400 %>
+    <ul class="list-group bg-transparent" style="position: relative; top: -40px;">
+      <h3>doses</h2>
+      <% @cocktail.doses.each do |dose| %>
+        <li class="list-group-item bg-warning d-flex justify-content-between px-2">
+          <%= "#{dose.description} of #{dose.ingredient.name}" %>
+          <% #link_to icon('fas', 'trash-alt'), dose_path(dose), method: :delete, data: { confirm: 'Sure?' }, class: "ml-1" %>
+          <%= button_to 'delete', dose_path(dose), method: :delete, data: { confirm: 'Sure?' }, class: "btn btn-warning" %>
+        </li>
+      <% end %>
+      <% if @cocktail.doses.count == 0 %>
+         <li class="list-group-item bg-warning d-flex justify-content-between px-2" style="width: 250px;"></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="d-flex" style="position: relative; top: -180px; left: 40px;">
+    <%= link_to 'Back', cocktails_path, { class: "mx-5 btn btn-warning"} %>
+    <%= link_to 'add new dose', new_cocktail_dose_path(@cocktail), { class: "btn btn-warning ml-5" } %>
+  </div>
+</div>

@@ -3,8 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+# prefix css to avoid problems with diferent browsers
 gem 'autoprefixer-rails'
+
+# images as fonts
 gem 'font-awesome-sass', '~> 5.12.0'
+
+# do forms in a very simplier way
 gem 'simple_form'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
